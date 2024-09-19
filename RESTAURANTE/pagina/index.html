@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../JS/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".ordenes").hide();
+            $(".boton2").click(function () {
+                $(".ordenes").fadeIn(500);
+            })
+
+            $(".G").click(function () {
+                $(".ordenes").fadeOut();
+            })
+        })
+    </script>
+</head>
+<header>
+    <a href="../pagina/index.html"> <img class="logo2" src="../imagenes/log1.png" alt="logo Restaurante"></a>
+        <h1 class="Nombre">Sabor</h1>
+        <h1 class="Nombre1">AZTECA</h1>
+        <nav>
+            <a href="../pagina/Factura.html"><img class="logo" src="" alt=""></a>
+        </nav>
+</header>
+
+<body>
+    <br><br><br>
+    <button class="boton2">Crear orden</button>
+    <br><br>
+    <div class="ordenes">
+        <form action="http://localhost:3000/insertar" method="post">
+
+            <h2>Ingrese la orden</h2> <br><br>
+
+            <div>
+                <label for="Numerodeorden">Numero de orden</label>
+                <input type="number" id="Numerodeorden" name="Numerodeorden" required>
+            </div>
+
+            <div>
+                <label for="Fecha">Fecha Atendida</label>
+                <input type="date" id="Fecha" name="Fecha" required>
+            </div>
+
+            <div>
+                <label for="HoraCobro">Hora de cobro</label>
+                <input type="time" id="HoraCobro" name="HoraCobro" required>
+            </div>
+
+            <div>
+                <label for="MesaAtendida">Mesa Atendida</label>
+                <input type="number" id="MesaAtendida" name="MesaAtendida" required>
+            </div>
+
+            <div>
+                <label for="propina">Propina Dada</label>
+                <input type="number" id="propina" name="propina" step="0.01" required>
+            </div>
+
+            <div>
+                <label for="Mesero">Mesero Que Atendio</label>
+                <input type="text" id="Mesero" name="Mesero" required>
+            </div>
+
+            <div class="enviar">
+                <input type="submit" value="Realizar pedido">
+            </div>
+        </form>
+        <!-- Num_Orden, Fecha, Hora_Cobro, Mesa, Propina, Mesero_Fk, Cliente_Fk -->
+    </div>
+</body>
+
+</html>

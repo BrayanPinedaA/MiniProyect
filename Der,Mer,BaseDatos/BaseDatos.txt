@@ -1,0 +1,147 @@
+CREATE DATABASE Restaurante
+    DEFAULT CHARACTER SET = 'utf8mb4';
+
+    USE Restaurante
+
+    CREATE TABLE Ordenes(
+        Id_Orden INTEGER (10) AUTO_INCREMENT PRIMARY KEY,
+        Num_Orden INTEGER (10),
+        Fecha DATE,
+        Hora_Cobro TIME (5),
+        Mesa VARCHAR (15),
+        Propina DECIMAL (10,0),
+        Mesero_Fk INTEGER,
+        Cliente_Fk INTEGER
+    )
+
+    CREATE TABLE Mesero(
+        Id_Mesero INTEGER (5) AUTO_INCREMENT PRIMARY KEY,
+        Nombre VARCHAR (25)
+    )
+
+    CREATE TABLE Cliente(
+        Id_Cliente INTEGER (5) AUTO_INCREMENT PRIMARY KEY,
+        Tipo_Cliente VARCHAR (25)
+    )
+
+    CREATE TABLE Ordenes_Productos(
+        Productos_id  INTEGER (10) AUTO_INCREMENT PRIMARY KEY,
+        Numero_Orden INTEGER (10)
+    )
+
+    CREATE TABLE Productos(
+        Id_Productos INTEGER (10) AUTO_INCREMENT PRIMARY KEY,
+        Nom_Productos VARCHAR (30),
+        Precio DECIMAL (10,2),
+        Costo DECIMAL (10,2),
+        Tproductos_Fk INTEGER (10),
+        Categorias_Fk INTEGER (10)
+    )
+
+    CREATE TABLE Tipo_Productos(
+        Id_Tproducto INTEGER (10) AUTO_INCREMENT PRIMARY KEY,
+        Tipo_Producto VARCHAR (25)
+    )
+
+    CREATE TABLE Categorias(
+        Id_Categorias INTEGER (10) AUTO_INCREMENT PRIMARY KEY,
+        Nom_Categorias VARCHAR (25)
+    )
+
+    -- alter para modificar las tablas
+
+    ALTER TABLE Ordenes ADD CONSTRAINT fk_uno FOREIGN KEY (Mesero_Fk) REFERENCES Mesero (Id_Mesero);
+
+    ALTER TABLE Ordenes ADD CONSTRAINT fk_dos FOREIGN KEY (Cliente_Fk) REFERENCES Cliente (Id_Cliente);
+
+    ALTER TABLE Ordenes_Productos ADD CONSTRAINT fk_tres FOREIGN KEY (Numero_Orden) REFERENCES Ordenes (Id_Orden);
+
+    ALTER TABLE Ordenes_Productos ADD CONSTRAINT fk_cuatro FOREIGN KEY (Numero_Orden) REFERENCES Productos (Id_Productos);
+
+    ALTER TABLE Productos ADD CONSTRAINT fk_cinco FOREIGN KEY (Tproductos_Fk) REFERENCES Tipo_Productos (Id_Tproducto);
+
+    ALTER TABLE Productos ADD CONSTRAINT fk_seis FOREIGN KEY (Categorias_Fk) REFERENCES Categorias (Id_Categorias);
+    /* DELETE FROM Ordenes;
+    ALTER TABLE Ordenes AUTO_INCREMENT = 0; */
+
+
+    LOAD DATA INFILE 'Carga Masiva/Mesero.csv'
+    REPLACE INTO TABLE Mesero
+    FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES
+    (Nombre);
+
+
+    LOAD DATA INFILE 'Carga Masiva/Cliente.csv'
+    REPLACE INTO TABLE Cliente
+    FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES
+    (Tipo_Cliente);
+
+
+    LOAD DATA INFILE 'Carga Masiva/Tipo_Productos.csv'
+    REPLACE INTO TABLE Tipo_Productos
+    FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES
+    (Id_Tproducto, Tipo_Producto);
+
+
+    LOAD DATA INFILE 'Carga Masiva/Categorias.csv'
+    REPLACE INTO TABLE Categorias
+    FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES
+    (Id_Categorias, Nom_Categorias);
+
+
+    LOAD DATA INFILE 'Carga Masiva/Ordenes.csv'
+    REPLACE INTO TABLE Ordenes
+    FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES
+    (Num_Orden, Fecha, Hora_Cobro, Mesa, Propina, Mesero_Fk, Cliente_Fk);
+
+
+    LOAD DATA INFILE 'Carga Masiva/Productos.csv'
+    REPLACE INTO TABLE Productos
+    FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES
+    (Id_Productos, Nom_Productos, Precio, Costo, Tproductos_Fk, Categorias_Fk);
+
+
+    LOAD DATA INFILE 'Carga Masiva/Ordenes_Productos.csv'
+    REPLACE INTO TABLE Ordenes_Productos
+    FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\n'
+    IGNORE 1 LINES
+    (Productos_id, Numero_Orden);
+	
+
+ SELECT m.Nombre AS Mesero, o.Num_Orden AS Orden, p.Nom_Productos AS Producto, p.Precio, c.Nom_Categorias AS Categoria, tp.Tipo_Producto AS Tipo
+    FROM Mesero m
+    INNER JOIN Ordenes o ON m.Id_Mesero = o.Mesero_Fk
+    INNER JOIN Ordenes_Productos op ON o.Id_Orden = op.Numero_Orden
+    INNER JOIN Productos p ON op.Productos_id = p.Id_Productos
+    INNER JOIN Categorias c ON p.Categorias_Fk = c.Id_Categorias
+    INNER JOIN Tipo_Productos tp ON p.Tproductos_Fk = tp.Id_Tproducto
+    WHERE o.Num_Orden IN (1, 2);
+
+        
+
+    DROP DATABASE Restaurante;
+
+    
+
+
+    DROP DATABASE Restaurante;

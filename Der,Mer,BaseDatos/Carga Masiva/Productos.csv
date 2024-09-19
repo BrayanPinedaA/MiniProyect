@@ -1,0 +1,70 @@
+Nom_Productos;Precio;Costo;Tproductos_Fk;Categorias_Fk,
+Arrachera del Chef;135;95,85;7;2
+Atún Encostrado;178;145,96;7;2
+Brochetas Hawaiianas;74;56,98;4;2
+Café americano;18;12,6;1;1
+Camarones al Coco;84;68,88;3;2
+Camarones Momia;75;58,5;4;2
+Capuccino;30;21,6;1;1
+Cítricos;69;56,58;3;2
+Corona;30;24,9;2;1
+Del Cheff;135;112,05;6;2
+Del Huerto;65;54,6;3;2
+Ensalada Prímula;80;68;3;2,
+Esfera del Cheff;50;39;8;2,
+Espárragos Envueltos;78;63,18;4;2
+Espresso;20;14,6;1;1
+Frutos del Bosque;83;69,72;3;2
+Indio;25;21,25;2;1
+Italiana;123;88,56;6;2
+Lasagna Ratatouille;75;54,75;5;2
+Limonada;25;20;1;1,
+Margarita;105;73,5;6;2
+Margret de Pato;198;150,48;7;2
+Mejillones Horneados;75;56,25;4;2
+Mexicana;115;95,45;6;2
+Minerva;40;32,4;2;1
+Modelo;30;23,7;2;1
+Naranjada;25;18,25;1;1
+Pacifico;30;21,9;2;1
+Pan de Elote;40;29,6;8;2
+Panela a la Leña;53;42,4;4;2
+Pannacotta Vainilla y Café;40;32,4;8;2
+Pasta 4 Quesos;69;53,13;5;2
+Pasta Alfredo;67;55,61;5;2
+Pasta de Tomate Deshidratado;65;54,6;5;2
+Pay de Temporada;42;33,6;8;2
+Pera Rostizada;89;75,65;3;2
+Pesto & Camarón;125;105;6;2,
+Pizza Prímula;105;81,9;6;2
+Pollo al Pastor;115;94,3;6;2
+Pollo Silvestre;125;90;7;2,
+Portobello Confitado;64;53,76;4;2
+Prímula Espresso;25;17,75;1;1
+Quesadillas Gobernador;78;60,06;9;2
+Refresco;20;16;1;1,
+Rollos Prímula;73;52,56;4;2
+Salmón;84;63;3;2,
+Salmón Ahumado;135;105,3;6;2
+Salmón al Pesto;174;121,8;7;2
+Strudel de Manzana;45;31,5;8;2
+Tacos Arrachera;79;66,36;9;2
+Tacos Capeados;75;60,75;9;2
+Tártara de atún/salmón Frescto;79;63,2;4;2
+Te helado;25;18,5;1;1
+Tecate;25;18;2;1,
+Tiramisú;42;31,5;8;2
+Tisana;25;18;1;1,
+Tropical;125;91,25;6;2
+Vacío;164;132,84;7;2
+Victoria;30;21,3;2;1
+Vino 1;587;422,64;10;1
+Vino 10;708;431,88;10;1
+Vino 2;545;397,85;10;1
+Vino 3;670;415,4;10;1
+Vino 4;410;270,6;10;1
+Vino 5;758;553,34;10;1
+Vino 6;715;536,25;10;1
+Vino 7;748;501,16;10;1
+Vino 8;383;256,61;10;1
+Vino 9 ;647;478,78;10;1

@@ -1,0 +1,181 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+    box-sizing: border-box;
+    background-image: url(../imagenes/DOS.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+/* Nombre que pone restaurante */
+.Nombre
+{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    font-family: Comic Sans MS;
+}
+.Nombre1
+{
+    position: absolute;
+    top: 20px;
+    left: 150px;
+    font-size: 50px;
+    color: #f26c64;
+    font-family: Comic Sans MS;
+}
+/* Barra de navegacion */
+nav
+{
+    position: absolute;
+    margin-left: 95%;
+}
+
+.logo2
+{
+    width: 175px;
+    height: 175px;
+    margin-left: 80%;
+    border-radius: 100%;
+    box-shadow: 5px 4px 5px black;
+    display: flex;
+
+}
+
+/*Texto que aparece en la parte superior del formulario*/
+.H2 {
+    align-items: center;
+    font-size: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000d2;
+
+}
+h1{
+    margin-left: 1%;
+}
+
+/* contenedor de el formulario entero */
+.inicio {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* boton de inicio de sesion */
+.boton {
+    color: #000;
+    background-color:cornflowerblue;
+}
+
+/* boton de la parte de crear orden */
+.boton2 {
+    color: white;
+    background-color:#f26c64;
+    padding: 15px 15px;
+    border-radius: 10%;
+    margin-left: 2%;
+    box-shadow: 2px 5px 2px #f26c64;
+}
+td,
+th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+a
+{
+    color: white;
+    text-decoration: none;
+}
+
+/* contenedor de la tabla donde se guardan las ordenes */
+
+.datos
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+    width: 80%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+/* Css de la tabla  */
+.tabla
+{
+    width: 80%; 
+    height: 200px; 
+    border-collapse: collapse; 
+    margin: 0 auto; 
+}
+
+/* Contenedor de la tabla con la info de las ordenes */
+
+.tablaD
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+    margin-top: 5%;
+}
+
+
+.ordenes {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    color: #f26c64;
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+label {
+    font-weight: bold;
+}
+input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.enviar {
+    grid-column: span 2;
+    text-align: center;
+}
+input[type="submit"] {
+    background-color: #f26c64;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+input[type="submit"]:hover {
+    background-color: #f26c64;
+}
