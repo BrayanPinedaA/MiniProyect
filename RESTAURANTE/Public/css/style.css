@@ -98,19 +98,6 @@ a
     text-decoration: none;
 }
 
-/* contenedor de la tabla donde se guardan las ordenes */
-
-.datos
-{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    color: white;
-    width: 80%;
-    margin-left: 20%;
-    margin-top: 5%;
-}
 
 /* Css de la tabla  */
 .tabla

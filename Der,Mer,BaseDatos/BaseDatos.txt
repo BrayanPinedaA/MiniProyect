@@ -10,8 +10,8 @@ CREATE DATABASE Restaurante
         Hora_Cobro TIME (5),
         Mesa VARCHAR (15),
         Propina DECIMAL (10,0),
-        Mesero_Fk INTEGER,
-        Cliente_Fk INTEGER
+        Mesero_Fk INTEGER not null,
+        Cliente_Fk INTEGER 
     )
 
     CREATE TABLE Mesero(
@@ -25,8 +25,8 @@ CREATE DATABASE Restaurante
     )
 
     CREATE TABLE Ordenes_Productos(
-        Productos_id  INTEGER (10) AUTO_INCREMENT PRIMARY KEY,
-        Numero_Orden INTEGER (10)
+        Numero_Orden INTEGER (10),
+        Productos_id  INTEGER (10)
     )
 
     CREATE TABLE Productos(
@@ -56,7 +56,7 @@ CREATE DATABASE Restaurante
 
     ALTER TABLE Ordenes_Productos ADD CONSTRAINT fk_tres FOREIGN KEY (Numero_Orden) REFERENCES Ordenes (Id_Orden);
 
-    ALTER TABLE Ordenes_Productos ADD CONSTRAINT fk_cuatro FOREIGN KEY (Numero_Orden) REFERENCES Productos (Id_Productos);
+    ALTER TABLE Ordenes_Productos ADD CONSTRAINT fk_cuatro FOREIGN KEY (Productos_id) REFERENCES Productos (Id_Productos);
 
     ALTER TABLE Productos ADD CONSTRAINT fk_cinco FOREIGN KEY (Tproductos_Fk) REFERENCES Tipo_Productos (Id_Tproducto);
 
@@ -125,23 +125,22 @@ CREATE DATABASE Restaurante
     ENCLOSED BY '"'
     LINES TERMINATED BY '\n'
     IGNORE 1 LINES
-    (Productos_id, Numero_Orden);
+    (Numero_Orden, Productos_id);
 	
 
- SELECT m.Nombre AS Mesero, o.Num_Orden AS Orden, p.Nom_Productos AS Producto, p.Precio, c.Nom_Categorias AS Categoria, tp.Tipo_Producto AS Tipo
-    FROM Mesero m
-    INNER JOIN Ordenes o ON m.Id_Mesero = o.Mesero_Fk
-    INNER JOIN Ordenes_Productos op ON o.Id_Orden = op.Numero_Orden
-    INNER JOIN Productos p ON op.Productos_id = p.Id_Productos
-    INNER JOIN Categorias c ON p.Categorias_Fk = c.Id_Categorias
-    INNER JOIN Tipo_Productos tp ON p.Tproductos_Fk = tp.Id_Tproducto
-    WHERE o.Num_Orden IN (1, 2);
+    SELECT  
+    Ordenes.Num_Orden AS Orden,
+    Ordenes.Mesa AS Mesa, 
+    Mesero.Nombre AS Mesero, 
+    Cliente.Tipo_Cliente AS Cliente
+    FROM 
+    Ordenes
+    INNER JOIN Mesero ON Ordenes.Mesero_Fk = Mesero.Id_Mesero  
+    INNER JOIN Cliente ON Ordenes.Cliente_Fk = Cliente.Id_Cliente
+    WHERE Ordenes.Id_Orden = 32771;
 
         
 
     DROP DATABASE Restaurante;
-
     
 
-
-    DROP DATABASE Restaurante;
