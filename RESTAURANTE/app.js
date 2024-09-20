@@ -31,8 +31,9 @@ app.post('/insertar',async(req,res)=>{
     console.log(rows)
 
     res.json({
-            NumeroPedido: orden_id
-    }).redirect('/pagina/index.html');
+        NumeroPedido: orden_id
+    });
+    
     }
 
     catch(error)

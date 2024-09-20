@@ -130,17 +130,16 @@ CREATE DATABASE Restaurante
 
     SELECT  
     Ordenes.Num_Orden AS Orden,
+    Ordenes.Fecha AS Fecha,
+    Ordenes.Hora_Cobro AS Hora,
     Ordenes.Mesa AS Mesa, 
-    Mesero.Nombre AS Mesero, 
-    Cliente.Tipo_Cliente AS Cliente
+    Ordenes.Propina AS Propina,
+    Mesero.Nombre AS Mesero
     FROM 
     Ordenes
-    INNER JOIN Mesero ON Ordenes.Mesero_Fk = Mesero.Id_Mesero  
-    INNER JOIN Cliente ON Ordenes.Cliente_Fk = Cliente.Id_Cliente
-    WHERE Ordenes.Id_Orden = 32771;
+    INNER JOIN Mesero ON Ordenes.Mesero_Fk = Mesero.Id_Mesero 
+    WHERE Ordenes.Id_Orden = 32773;
 
         
 
     DROP DATABASE Restaurante;
-    
-
